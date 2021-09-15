@@ -6,10 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Customer extends Model
 {
-
+    protected $table = 'customers';
     protected $primaryKey = 'customerNumber';
 
     public function orders(){
-        return $this->belongsTo(Order::class, 'customerNumber', 'customerNumber');
+        return $this->hasMany(Order::class, 'customerNumber');
+    }
+
+    public function payment(){
+        return $this->hasMany(Payment::class,'customerNumber');
     }
 }

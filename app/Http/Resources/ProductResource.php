@@ -26,9 +26,9 @@ class ProductResource extends JsonResource
         return [
             'product'      => $this->productName,
             'product_line' => $this->productLine,
-            'unit_price'   => (float)$pivotAttributes['unit_price'],
-            'qty'   => $pivotAttributes['qty'],
-            'line_total'   => $pivotAttributes['line_total'],
+            // 'unit_price'   => (float)$pivotAttributes['unit_price'],
+            // 'qty'   => $pivotAttributes['qty'],
+            // 'line_total'   => $pivotAttributes['line_total'],
         ];
     }
 }

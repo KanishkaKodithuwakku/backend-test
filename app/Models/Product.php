@@ -6,13 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
+    protected $table = 'products';
     protected $primaryKey = 'productCode';
-    protected $keyType = 'string';
-    
-    public function orders()
+
+    public function orderDetails()
     {
-        return $this->belongsToMany(Order::class, 'orderdetails','productCode','orderNumber')
-            ->withPivot('quantityOrdered', 'priceEach', 'orderLineNumber');
+        return $this->hasMany(OrderDetail::class, 'orderdetails','productCode');
+    }
+
+    public function productLine(){
+        return $this->belongsTo(ProductLine::class,'productLine');
     }
 
 

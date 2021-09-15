@@ -19,7 +19,7 @@ class OrderResource extends JsonResource
              'order_id' => $this->orderNumber,
              'order_date' => $this->orderDate,
              'status' => $this->status,
-             'order_details' => ProductResource::collection($this->whenLoaded('products')),
+             'order_details' => ProductResource::collection($this->whenLoaded('orderdetails')),
              'bill_total' => $this->billTotal,
              'customer' =>  new CustomerResource($this->whenLoaded('customer')),
         ];
